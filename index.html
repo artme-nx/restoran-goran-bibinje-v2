@@ -361,7 +361,7 @@ document.getElementById('resvForm').addEventListener('submit',function(e){e.prev
   var t='Pozdrav Goran! Rezervacija stola.%0AIme: '+encodeURIComponent(n)+'%0ATermin: '+encodeURIComponent(d)+'%0AGostiju: '+encodeURIComponent(p)+(m?'%0ANapomena: '+encodeURIComponent(m):'');
   window.open('https://wa.me/385989691593?text='+t,'_blank');});
 if(window.gsap){gsap.registerPlugin(ScrollTrigger);
-  if(!reduce&&window.Lenis){var lenis=new Lenis({duration:1.2,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));},smoothWheel:true});
+  if(!reduce&&window.Lenis){var lenis=new Lenis({lerp:0.2, wheelMultiplier:1, smoothWheel:true, syncTouch:false});
     gsap.ticker.add(function(t){lenis.raf(t*1000);});gsap.ticker.lagSmoothing(0);lenis.on('scroll',ScrollTrigger.update);
     document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href');if(id.length<2)return;var el=document.querySelector(id);if(el){e.preventDefault();lenis.scrollTo(el,{offset:-60});}});});}
   if(!reduce){
